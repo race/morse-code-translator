@@ -3,6 +3,7 @@
  * A library for converting Morse Code to Latin and vice-versa
  *
  * @author Jeremy Race (https://github.com/race)
+ * @website https://github.com/race/morse-code-translator
  * @created 2016-05-02
  */
 class MorseCodeTranslator {
