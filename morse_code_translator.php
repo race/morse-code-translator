@@ -1,9 +1,9 @@
 <?php
 /**
  * A library for converting Morse Code to Latin and vice-versa
+ * Morse Code reference: https://www.itu.int/rec/R-REC-M.1677-1-200910-I/en
  *
- * @author Jeremy Race (https://github.com/race)
- * @website https://github.com/race/morse-code-translator
+ * @author Jeremy Race (https://github.com/race/morse-code-translator)
  * @created 2016-05-02
  */
 class MorseCodeTranslator {
@@ -15,8 +15,8 @@ class MorseCodeTranslator {
     '.'     => 'E',
     '..-.'  => 'F',
     '--.'   => 'G',
-    '--.'   => 'H',
-    '....'  => 'I',
+    '....'  => 'H',
+    '..'    => 'I',
     '.---'  => 'J',
     '-.-'   => 'K',
     '.-..'  => 'L',
@@ -43,7 +43,7 @@ class MorseCodeTranslator {
     '--...' => '7',
     '---..' => '8',
     '----.' => '9',
-    '-'     => '0',
+    '-----' => '0',
   );
 
   /**
@@ -76,7 +76,7 @@ class MorseCodeTranslator {
    * @return string $morseString The string encoded in morse code
    */
   public function latinToMorse($latinString) {
-    $chars = explode(' ', $latinString);
+    $chars = str_split(strtoupper($latinString));
     $latinToMorseLib = array_flip(static::$library);
 
     $morseString = '';
@@ -84,6 +84,7 @@ class MorseCodeTranslator {
       if (isset($latinToMorseLib[$char])) {
         $morseString .= $latinToMorseLib[$char];
       }
+      $morseString .= ' ';
     }
 
     return $morseString;
